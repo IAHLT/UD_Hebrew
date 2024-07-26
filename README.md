@@ -29,6 +29,8 @@ This version of the HTB data follows the following principles:
   * Rework auxiliaries, reanalyzing impersonal modals as predicates with clausal subjects
   * Introduce previously unused labels with their usual functions (e.g. `expl`)
   * Introduce commons subtypes for passive subjects (`nsubj:pass`, `csubj:pass`)
+  * Unification of FEATs with IAHLT UD treebanks (Wiki, Knesset)
+  * Changed :tmod and :npmod subtypes to :unmarked with TemporalNPAdjunct=Yes in misc to preserve tmod info, following a UD Core Group decision in July 2024
   * More generally, producing valid (non-legacy) UD data in line with the current Universal Dependencies validator tool (available [here](https://github.com/UniversalDependencies/tools))
 
 ## History
@@ -41,10 +43,8 @@ This version is currently refered to as IAHLT-HTB.
 
 # Structure
 
-**TODO**: update token numbers once stabilized
-
 This directory contains a corpus of sentences annotated using Universal Dependencies annotation.
-The corpus comprises 115,535 tokens (158,855 words) and 6,216 sentences, taken from the `Ha'aretz` newspaper.
+The corpus comprises 115K tokens (158K words) and 6,216 sentences, taken from the `Ha'aretz` newspaper.
 The trees were manually annotated into phrase-structure trees, and then semi-automatically converted
 into Universal Dependencies.
 
@@ -58,7 +58,7 @@ The dependency taxonomy can be found on the Universal Dependencies web site:
     http://universaldependencies.github.io/docs/#language-he
 
 The Train/Dev/Test split follows previous splits of the underlying Treebank, namely:
-sentences 1-484 dev (10,534 tokens), 485-5725 train (127,363 tokens), 5726-6216 test (11,386 tokens).
+sentences 1-484 dev (~10K tokens), 485-5725 train (~127K tokens), 5726-6216 test (~11K tokens).
 
 Some parts of the structure are more reliable than others. In particular, words with a "morphological feature"
 entry of HebSource=ConvUncertainHead or HebSource=ConvUncertainLabel indicate that the head (label) information
@@ -98,8 +98,9 @@ Hebrew Constituency Treebank (v2) developed by MILA, The Knowledge Center for Pr
 
 ## References
 
-You are encouraged to cite these papers if you use the Hebrew Universal Dependencies Treebank:
+You are encouraged to cite these papers reflecting the original source treebank if you use the Hebrew Universal Dependencies Treebank:
 
+```bibtex
     @inproceedings{tsarfaty2013unified,
         title={A Unified Morpho-Syntactic Scheme of Stanford Dependencies},
         author={Tsarfaty, Reut},
@@ -113,7 +114,20 @@ You are encouraged to cite these papers if you use the Hebrew Universal Dependen
         booktitle={Proc. of ACL},
         year={2013}
     }
+```
 
-Note that these papers do not accurately reflect the current annotation in the Treebank. A more up-to-date publication
-is forthcoming.
+Note that these papers do not accurately reflect the current annotation in the Treebank. A more up-to-date publication discussing the IAHLT scheme and tokenization is:
+
+```bibtex
+@InProceedings{ZeldesHowellOrdanBenMoshe2022,
+  author    = {Amir Zeldes and Nick Howell and Noam Ordan and Yifat Ben Moshe},
+  booktitle = {Proceedings of {EMNLP} 2022},
+  title     = {A Second Wave of {UD} {H}ebrew Treebanking and Cross-Domain Parsing},
+  year      = {2022},
+  pages     = {4331--4344},
+  address   = {Abu Dhabi, UAE},
+  url       = {https://aclanthology.org/2022.emnlp-main.292/},
+}
+```
+
 
